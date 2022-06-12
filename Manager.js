@@ -4,7 +4,7 @@ class Mangager extends Employee {
         super(name, id, email);
     }
     getOfficeNumber() {
-        return this.officeNumber;
+        return "128";
     }
 
     getRole() {
