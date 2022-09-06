@@ -44,7 +44,7 @@ function startApp () {
 
 // starts the application in the command line; prompts the user for manager details 
 
-function newManager() {
+function creatNewManager() {
     inquirer.prompt ([
     
         {
@@ -78,3 +78,84 @@ function newManager() {
       });
     
 }
+
+function createNewEngineer() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "engineerName",
+        message: "What is the engineer's name?"
+      },
+
+      {
+        type: "input",
+        name: "engineerId",
+        message: "What is the engineer's employee ID number?" 
+      },
+
+      {
+        type: "input",
+        name: "engineerEmail",
+        message: "What is the engineer's email address?"
+      },
+
+      {
+        type: "input",
+        name: "engineerGithub",
+        message: "What is the engineer's GitHub username?"
+      }
+
+    ]).then(answers => {
+      const engineer = new Engineer(answers.engineerName, answers.engineerId, answers.engineerEmail, answers.engineerGithub);
+      teamArray.push(engineer);
+      createTeam();
+    });
+
+  }
+
+  function createNewIntern() {
+    inquirer.prompt([
+      
+      {
+        type: "input",
+        name: "internName",
+        message: "What is the intern's name?"
+      },
+
+      {
+        type: "input",
+        name: "internId",
+        message: "What is the intern's employee ID number?" 
+      },
+
+      {
+        type: "input",
+        name: "internEmail",
+        message: "What is the intern's email address?"
+      },
+
+      {
+        type: "input",
+        name: "internSchool",
+        message: "What school does the intern attend?"
+      }
+
+    ]).then(answers => {
+      const intern = new Intern(answers.internName, answers.internId, answers.internEmail, answers.internSchool);
+      teamArray.push(intern);
+      createTeam();
+    });
+
+  }
+
+  // Requests that the user enter the details of another employee. Will either run prompts for the selected employee type or render HTML and terminate the application.
+  function htmlBuilder () {
+    console.log("Team created!")
+    fs.writeFileSync(outputPath, generateTeam(teamArray), "UTF-8")
+}
+
+createTeam();
+
+// This function will initate the application.
+startApp();
