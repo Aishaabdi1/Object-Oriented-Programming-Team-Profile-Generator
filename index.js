@@ -15,6 +15,66 @@ const generateTeam = require("./src/template.js")
 
 teamArray = [];
 
+// starts the application in the command line; prompts user for employee type details
 function startApp () {
+    function createTeam () {
+        inquirer.prompt([{
+          type: "list",
+          message: "What type of employee would you like to add to your team?",
+          name: "addEmployeePrompt",
+          choices: ["Manager", "Engineer", "Intern", "No additional team members are needed."]
+        }]).then(function (userInput) {
+          switch(userInput.addEmployeePrompt) {
+            case "Manager":
+              addManager();
+              break;
+            case "Engineer":
+              addEngineer();
+              break;
+            case "Intern":
+              addIntern();
+              break;
+    
+            default:
+              htmlBuilder();
+          }
+        })
+      }
+}
+
+// starts the application in the command line; prompts the user for manager details 
+
+function newManager() {
+    inquirer.prompt ([
+    
+        {
+          type: "input",
+          name: "managerName",
+          message: "What is the manager's name?"
+        },
+    
+        {
+          type: "input",
+          name: "managerId",
+          message: "What is the manager's employee ID number?"
+        },
+    
+        {
+          type: "input",
+          name: "managerEmail",
+          message: "What is the manager's email address?"
+        },
+    
+        {
+          type: "input",
+          name: "managerOfficeNumber",
+          message: "What is the manager's office number?"
+        }
+    
+      ]).then(answers => {
+        const manager = new Manager(answers.managerName, answers.managerId, answers.managerEmail, answers.managerOfficeNumber);
+        teamArray.push(manager);
+        createTeam();
+      });
     
 }
