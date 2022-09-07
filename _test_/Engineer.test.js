@@ -1,8 +1,8 @@
 const Engineer = require("../Engineer");
-const engineer = new Engineer ('Abdi', 0002, '');
+const engineer = new Engineer ('Bob', 0002, '');
 
 test('test if we can get the constructor values for the engineer object', () => {
-    expect(engineer.name).toBe('Abdi');
+    expect(engineer.name).toBe('Bob');
     expect(engineer.id).toBe(0002);
     expect(engineer.email).toBe('');
     });
