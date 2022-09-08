@@ -46,8 +46,6 @@ function startApp () {
 
 // starts the application in the command line; prompts the user for manager details 
 
-
-
 function creatNewManager() {
     inquirer.prompt ([
     
@@ -82,7 +80,7 @@ function creatNewManager() {
       });
     
 }
- //prompts to create new engineer
+ // prompts the user for engineer details
 function createNewEngineer() {
     inquirer.prompt([
       
@@ -118,7 +116,7 @@ function createNewEngineer() {
 
   }
 
-  //prompts to create ne intern
+  //prompts the user for intern details
   function createNewIntern() {
     inquirer.prompt([
       
@@ -162,5 +160,6 @@ function createNewEngineer() {
 
 createTeam();
 }
+
 // This function will initate the application.
 startApp();
