@@ -4,7 +4,7 @@
   "description": "My application will use Jest for running the unit tests and Inquirer for collecting input from the user. \r The application will be invoked using the following command:",
   "main": "Employee.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "Jest"
   },
   "repository": {
     "type": "git",
