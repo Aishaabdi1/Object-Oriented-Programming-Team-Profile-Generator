@@ -4,13 +4,15 @@ const path = require("path");
 const fs = require("fs");
 
 
-// Creating objects with different employee types
-const Manager = require("./lib/Manager.js");
-const Engineer = require("./lib/Engineer.js");
-const Intern = require("./lib/Intern.js");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+// Creating objects with different employee types
+const Manager = require("./library/Manager.js");
+const Engineer = require("./library/Engineer.js");
+const Intern = require("./library/Intern.js");
+
+//output directory for generated team file
+const OUTPUT_DIR = path.resolve(__dirname, "example");
+const outputPath = path.join(OUTPUT_DIR, "index.html");
 const generateTeam = require("./src/template.js")
 
 teamArray = [];
@@ -26,13 +28,13 @@ function startApp () {
         }]).then(function (userInput) {
           switch(userInput.addEmployeePrompt) {
             case "Manager":
-              addManager();
+              creatNewManager();
               break;
             case "Engineer":
-              addEngineer();
+              createNewEngineer();
               break;
             case "Intern":
-              addIntern();
+              createNewIntern();
               break;
     
             default:
@@ -40,9 +42,11 @@ function startApp () {
           }
         })
       }
-}
+
 
 // starts the application in the command line; prompts the user for manager details 
+
+
 
 function creatNewManager() {
     inquirer.prompt ([
@@ -78,7 +82,7 @@ function creatNewManager() {
       });
     
 }
-
+ //prompts to create new engineer
 function createNewEngineer() {
     inquirer.prompt([
       
@@ -114,6 +118,7 @@ function createNewEngineer() {
 
   }
 
+  //prompts to create ne intern
   function createNewIntern() {
     inquirer.prompt([
       
@@ -156,6 +161,6 @@ function createNewEngineer() {
 }
 
 createTeam();
-
+}
 // This function will initate the application.
 startApp();
