@@ -11,7 +11,7 @@ https://drive.google.com/file/d/1pBWZXcrF1Vb0Sm9YFPW-lgYTAvB28vox/view
 ## Packages 
 - Inquirer 
 - jest (dev dependancy)
-- @types/jest (deb dependancy)
+- @types/jest (dev dependancy)
 
 ## User journey 
 
